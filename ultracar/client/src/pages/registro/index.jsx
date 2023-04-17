@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { setData } from "../../services/useLocalStorage";
 import { mecanicos } from "../../services/mock";
+
 import "./style.scss";
 
 export default function Registro() {
@@ -38,10 +40,7 @@ export default function Registro() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(nome, cpf, email, password, veiculo);
-    localStorage.setItem('user', JSON.stringify({ nome, cpf, email, password, veiculo }));
-      
-    
+    setData('user', ({ nome, cpf, email, role:'cliente', password, veiculo }));
     history("/");
   };
 

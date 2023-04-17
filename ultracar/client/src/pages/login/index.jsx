@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { setData } from "../../services/useLocalStorage";
 import { useState } from "react";
-import { userMecanico, userCliente } from "../../services/mock";
+import { mecanicos, userCliente } from "../../services/mock";
 import './style.scss';
 
 export default function Login() {
   const history = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const MIN_PASSWORD_LENGTH = 6;
@@ -22,19 +22,24 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validaLogin()) {
+      if (email === mecanicos[0].email && password === mecanicos[0].password) {
+        setData("user", mecanicos[0]); 
+      } if (email === mecanicos[1].email && password === mecanicos[1].password) {
+        setData("user", mecanicos[1]);
+      } if (email === userCliente.email && password === userCliente.password) {
+        setData("user", userCliente);
+      }
       history('/');
-    } else {
-      alert("Email ou senha inválidos");
-    }
-  };
+  }};
 
   const validaLogin = () => {
-    if (email === userMecanico.email && password === userMecanico.password) {
+    if (email === mecanicos[0].email && password === mecanicos[0].password) {
       return true;
-    } if (email === userCliente.email && password === userCliente.password) {
+    } if (email === mecanicos[1].email && password === mecanicos[1].password) {
       return true;
     }
-  };
+    };
+
   
   return (
     <div className="login__container">

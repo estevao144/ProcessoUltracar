@@ -14,14 +14,14 @@
 
      }
 
-     .navbar__menu {
-         ul {
+     .navbar__menu {      
+        ul {
              display: flex;
              flex-direction: row;
              width: max-content;
              justify-content: space-between;
-             gap: 2rem;
-
+             gap: 2rem;  
+            }
              button {
                  background-color: #f7f7f7;
                  border: none;
@@ -37,4 +37,3 @@
          }
 
      }
- }
