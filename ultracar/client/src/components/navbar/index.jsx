@@ -6,7 +6,7 @@ export default function Navbar() {
   const userCurrent = {
     name:'',
     cpf:'',
-    role:'',
+    role:'cliente',
     };
     
   return (

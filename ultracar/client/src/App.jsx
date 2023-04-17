@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar, Footer } from './components'
-import { Login, Home } from './pages'
+import { Login, Home, Registro } from './pages'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import './App.scss';
 
@@ -28,6 +28,10 @@ function App() {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/registro",
+          element: <Registro />,
         }
       ],
     },

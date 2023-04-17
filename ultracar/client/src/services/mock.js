@@ -1,11 +1,26 @@
 const userMecanico = {
 name: 'Guilherme Davi',
 email: 'gui.davi@ultracar.com',
-cpf: '111.222.333-44',
 role: 'mecanico',
 password: '123456',
 };
 
+const mecanicos = [
+{
+    name: 'Guilherme Davi',
+    email: 'gui.davi@ultracar.com',
+    idFuncionario: '1',
+    role: 'mecanico',
+    password: '123456',
+},
+{
+    name: 'Mauricio Marques',
+    email: 'mauricio.marq@ultracar.com',
+    idFuncionario: '2',
+    role: 'mecanico',
+    password: '123456',
+}
+];
 const userCliente = {
 name: 'Estevão Marques',
 email: 'estevao.marq@ultracar.com',
@@ -14,4 +29,4 @@ role: 'cliente',
 password: '123456',
 };
 
-export { userMecanico, userCliente };
+export { userMecanico, userCliente, mecanicos };
