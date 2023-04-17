@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Footer } from './components'
+import { Login } from './pages'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Login />,
         },
       ],
     },
