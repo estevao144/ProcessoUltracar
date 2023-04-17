@@ -6,8 +6,9 @@ export default function Navbar() {
   const userCurrent = {
     name:'',
     cpf:'',
-    role:'cliente',
+    role:'',
     };
+    
   return (
     <div className="navbar__container">
       <div className="navbar__container__logo">

@@ -9,7 +9,7 @@ export default function Home() {
         <img src={logoTall} alt="logoTall" />
       </div>
       <div className="home__container__text">
-        <h1 className="home__container__text__title"> sobre a UltraCar</h1>
+        <h2 className="home__container__text__title"> sobre a UltraCar</h2>
         <p className="home__container__text__paragrafo">
           {" "}
           Acessado pela nuvem, simplifica e facilita a realização da gestão em
