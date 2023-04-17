@@ -1,7 +1,9 @@
 import React from 'react'
 import { Navbar, Footer } from './components'
-import { Login } from './pages'
+import { Login, Home } from './pages'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
+import './App.scss';
+
 function App() {
 
   const Layout = () => {
@@ -21,8 +23,12 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Login />,
+          element: <Home />,
         },
+        {
+          path: "/login",
+          element: <Login />,
+        }
       ],
     },
   ]);
