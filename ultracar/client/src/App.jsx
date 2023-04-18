@@ -1,8 +1,9 @@
 import React from 'react'
-import { Navbar, Footer, TableCar } from './components'
-import { Login, Home, Registro } from './pages'
+import { Navbar, Footer } from './components'
+import { Login, Home, Registro, Veiculos } from './pages'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import './App.scss';
+
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
         },
         {
           path: '/veiculos',
-          element: <TableCar />
+          element: <Veiculos />
         }
       ],
     },

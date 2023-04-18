@@ -15,6 +15,25 @@ const mecanicos = [
 }
 ];
 
+const pecas = [
+{
+    name: 'selecione uma peça',
+    preco: '0',
+},
+{
+    name: 'rosca',
+    preco: '100',
+},
+{
+    name: 'Para-choque',
+    preco: '200',
+},
+{
+    name: 'Amortecedor',
+    preco: '550',
+}
+];
+
 const userCliente = {
 name: 'Estevão Marques',
 email: 'estevao.marq@ultracar.com',
@@ -33,4 +52,4 @@ mecanico: 'Guilherme Davi',
 status: 'Em andamento',
 };
 
-export { veiculo, userCliente, mecanicos };
+export { veiculo, userCliente, mecanicos, pecas };

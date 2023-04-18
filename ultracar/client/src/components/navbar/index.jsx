@@ -8,7 +8,7 @@ export default function Navbar() {
   const userCurrent = getData("user") || [];  
   const history = useNavigate();
   const handleExit = () => {
-    localStorage.clear();
+    localStorage.removeItem("user");
     history("/");
   };
 

@@ -44,65 +44,57 @@ export default function TableCar() {
     setVeiculos(veiculosCurrent);
     setLoading(false);
   }, []);
+  const user = getData("user");
+
+  console.log(user);
 
   return (
     <div className="table-car">
-      <div> Adicionar carro:</div>
-      <form onSubmit={ addVeiculo }>
-        <label htmlFor="marca">
-          <input
-            type="text"
-            value={veiculoCadastro.marca}
-            onChange={(event) =>
-              setVeiculoCadastro({
-                ...veiculoCadastro,
-                marca: event.target.value,
-              })
-            }
-            placeholder="Marca"
-          />
-        </label>
-        <label htmlFor="modelo">
-          <input
-            type="text"
-            value={veiculoCadastro.modelo}
-            placeholder="Modelo"
-            onChange={(event) =>
-              setVeiculoCadastro({
-                ...veiculoCadastro,
-                modelo: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label htmlFor="ano">
-          <input
-            type="text"
-            value={veiculoCadastro.ano}
-            placeholder="Ano"
-            onChange={(event) =>
-              setVeiculoCadastro({
-                ...veiculoCadastro,
-                ano: event.target.value,
-              })
-            }
-          />
-        </label>
-        <label htmlFor="placa">
-          <input
-            type="text"
-            value={veiculoCadastro.placa}
-            placeholder="Placa"
-            onChange={(event) => {
-              setVeiculoCadastro({
-                ...veiculoCadastro,
-                placa: event.target.value,
-              });
-            }}
-          />
-        </label>
-        <button type="submit">Adicionar</button>
-      </form>
+      <div> Adicionar carro:</div><form onSubmit={addVeiculo}>
+            <label htmlFor="marca">
+              <input
+                type="text"
+                value={veiculoCadastro.marca}
+                onChange={(event) => setVeiculoCadastro({
+                  ...veiculoCadastro,
+                  marca: event.target.value,
+                })}
+                placeholder="Marca" />
+            </label>
+            <label htmlFor="modelo">
+              <input
+                type="text"
+                value={veiculoCadastro.modelo}
+                placeholder="Modelo"
+                onChange={(event) => setVeiculoCadastro({
+                  ...veiculoCadastro,
+                  modelo: event.target.value,
+                })} />
+            </label>
+            <label htmlFor="ano">
+              <input
+                type="text"
+                value={veiculoCadastro.ano}
+                placeholder="Ano"
+                onChange={(event) => setVeiculoCadastro({
+                  ...veiculoCadastro,
+                  ano: event.target.value,
+                })} />
+            </label>
+            <label htmlFor="placa">
+              <input
+                type="text"
+                value={veiculoCadastro.placa}
+                placeholder="Placa"
+                onChange={(event) => {
+                  setVeiculoCadastro({
+                    ...veiculoCadastro,
+                    placa: event.target.value,
+                  });
+                } } />
+            </label>
+            <button type="submit">Adicionar</button>
+          </form>
       {loading ? (
         <p>Sem carros cadastrados</p>
       ) : (

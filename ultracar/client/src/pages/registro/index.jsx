@@ -8,37 +8,48 @@ import "./style.scss";
 
 export default function Registro() {
   const history = useNavigate();
-  const [nome, setNome] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [nome, setNome] = useState('');
+  // const [cpf, setCpf] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
   const [veiculo, setVeiculo] = useState({
     marca: '',
     modelo: '',
     placa: '',
     ano: '',
-    cliente: '',
+    cliente: {},
     mecanico: '',
     status: 'aberto',
   });
   const MIN_PASSWORD_LENGTH = 6;
 
-  const handleNome = (e) => {
-    setNome(e.target.value);
+  // const handleNome = (e) => {
+  //   setNome(e.target.value);
+  // };
+
+  // const handleCpf = (e) => {
+  //   setCpf(e.target.value);
+  // };
+
+  // const handleEmail = (e) => {
+  //   setEmail(e.target.value);
+  // };
+
+  // const handlePassword = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
+  const handleCliente = (e) => {
+    setVeiculo(prevState => ({
+      ...prevState,
+      cliente: { 
+        ...prevState.cliente,
+        [e.target.name]: e.target.value,
+      }
+    }));
   };
 
-  const handleCpf = (e) => {
-    setCpf(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
+  const { nome, cpf, email, password } = veiculo.cliente;
   const handleSubmit = (e) => {
     e.preventDefault();
     setData('user', ({ nome, cpf, email, role:'cliente', password }));
@@ -51,7 +62,7 @@ export default function Registro() {
     return vEmail.test(email);
   };
   const validaPassword = () => {
-    if (password.length < MIN_PASSWORD_LENGTH) {
+    if (password?.length < MIN_PASSWORD_LENGTH) {
       return false;
     }
     return true;
@@ -82,7 +93,8 @@ export default function Registro() {
             type="nome"
             placeholder="Insira seu nome"
             value={nome}
-            onChange={(event) => handleNome(event)}
+            name="nome"
+            onChange={(event) => handleCliente(event)}
           />
         </label>
         <label htmlFor="cpf">
@@ -91,7 +103,8 @@ export default function Registro() {
             type="cpf"
             placeholder="Insira seu CPF"
             value={cpf}
-            onChange={(event) => handleCpf(event)}
+            name="cpf"
+            onChange={(event) => handleCliente(event)}
           />
         </label>
         <label htmlFor="email">
@@ -99,8 +112,9 @@ export default function Registro() {
             className="registro__container__form__input"
             type="email"
             placeholder="Insira seu email"
+            name="email"
             value={email}
-            onChange={(event) => handleEmail(event)}
+            onChange={(event) => handleCliente(event)}
           />
         </label>
         <label>
@@ -109,8 +123,9 @@ export default function Registro() {
             type="password"
             placeholder="Insira sua senha"
             id="password"
+            name="password"
             value={password}
-            onChange={(event) => handlePassword(event)}
+            onChange={(event) => handleCliente(event)}
           />
         </label>
         <h1>Veiculo:</h1>
