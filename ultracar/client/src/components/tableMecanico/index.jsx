@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { getData, setData } from "../../services/useLocalStorage";
 import { mecanicos, pecas } from "../../services/mock.js";
+import QRCode from "react-qr-code";
 import "./style.scss";
 
 export default function TableMecanico() {
@@ -56,6 +57,7 @@ export default function TableMecanico() {
         
           };
 
+          const user = getData("user");
     useEffect(() => {
         const veiculosCurrent = getData("veiculos");
         setVeiculos(veiculosCurrent);
@@ -99,7 +101,16 @@ export default function TableMecanico() {
               </div>
               <div className="table-car__header__content__qrcode">
                 <p>QR Code</p>
-                <p>QRCODE AQUI</p>
+                <QRCode
+                      size={400}
+                      style={{
+                        height: "150px",
+                        maxWidth: "100%",
+                        width: "100%",
+                      }}
+                      value={ `${veiculos.marca},${veiculos.modelo},${veiculos.ano},${veiculos.placa},${veiculos.status}, ${veiculos.descricao}, ${veiculos.mecanico},${user.name}`}
+                      viewBox={`0 0 256 256`}
+                    />
               </div>
               <div>
                 <label htmlFor="status">

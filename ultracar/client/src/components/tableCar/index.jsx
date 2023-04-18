@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { getData, setData } from "../../services/useLocalStorage";
+import QRCode from "react-qr-code";
 import "./style.scss";
 
 export default function TableCar() {
@@ -124,7 +125,16 @@ export default function TableCar() {
               </div>
               <div className="table-car__header__content__qrcode">
                 <p>QR Code</p>
-                <p>QRCODE AQUI</p>
+                <QRCode
+                      size={400}
+                      style={{
+                        height: "150px",
+                        maxWidth: "100%",
+                        width: "100%",
+                      }}
+                      value={ `${veiculos.marca},${veiculos.modelo},${veiculos.ano},${veiculos.placa},${veiculos.status}, ${veiculos.descricao}, ${veiculos.mecanico},${user.name}`}
+                      viewBox={`0 0 256 256`}
+                    />
               </div>
               <button onClick={() => removeVeiculo(veiculo.placa)}>Remover</button>
             </div>
