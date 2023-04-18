@@ -8,17 +8,18 @@ import "./style.scss";
 
 export default function Registro() {
   const history = useNavigate();
-  const [nome, setNome] = useState("");
-  const [cpf, setCpf] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [nome, setNome] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [veiculo, setVeiculo] = useState({
-    marca: "",
-    modelo: "",
-    placa: "",
-    ano: "",
-    cliente: "",
-    mecanico: "",
+    marca: '',
+    modelo: '',
+    placa: '',
+    ano: '',
+    cliente: '',
+    mecanico: '',
+    status: 'aberto',
   });
   const MIN_PASSWORD_LENGTH = 6;
 
@@ -40,7 +41,8 @@ export default function Registro() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData('user', ({ nome, cpf, email, role:'cliente', password, veiculo }));
+    setData('user', ({ nome, cpf, email, role:'cliente', password }));
+    setData('veiculos', [veiculo]);
     history("/");
   };
 
@@ -77,7 +79,6 @@ export default function Registro() {
         <label htmlFor="nome">
           <input
             className="registro__container__form__input"
-
             type="nome"
             placeholder="Insira seu nome"
             value={nome}

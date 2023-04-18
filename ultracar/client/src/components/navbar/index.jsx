@@ -6,7 +6,6 @@ import './index.scss';
 
 export default function Navbar() {
   const userCurrent = getData("user") || [];  
-  console.log(userCurrent); 
   const history = useNavigate();
   const handleExit = () => {
     localStorage.clear();
@@ -23,6 +22,10 @@ export default function Navbar() {
 
   const handleLogin = () => {
     history("/login");
+  };
+
+  const handleVeiculos = () => {
+    history("/veiculos");
   };
 
   useEffect(() => {
@@ -46,7 +49,7 @@ export default function Navbar() {
         <div className="navbar__menu">
         <ul>
         <button className="navbar__container__inicio" onClick={ handleBegin }>Inicio</button>
-        <button className="navbar__container__perfil">Carros</button>
+        <button className="navbar__container__perfil" onClick={ handleVeiculos }>Carros</button>
         <button className="navbar__container__logout"
         onClick={ () => handleExit()}
         >Logout</button>
@@ -56,7 +59,7 @@ export default function Navbar() {
         <div className="navbar__menu">
         <ul>
         <button className="navbar__container__inicio" onClick={ handleBegin }>Inicio</button>
-        <button className="navbar__container__perfil">Ordens de serviço</button>
+        <button className="navbar__container__perfil" onClick={ handleVeiculos }>Ordens de serviço</button>
         <button className="navbar__container__logout"
         onClick={ () => handleExit()}
         >Logout</button>

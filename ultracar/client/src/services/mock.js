@@ -1,10 +1,3 @@
-const userMecanico = {
-name: 'Guilherme Davi',
-email: 'gui.davi@ultracar.com',
-role: 'mecanico',
-password: '123456',
-};
-
 const mecanicos = [
 {
     name: 'Guilherme Davi',
@@ -21,6 +14,7 @@ const mecanicos = [
     password: '123456',
 }
 ];
+
 const userCliente = {
 name: 'Estevão Marques',
 email: 'estevao.marq@ultracar.com',
@@ -29,4 +23,14 @@ role: 'cliente',
 password: '123456',
 };
 
-export { userMecanico, userCliente, mecanicos };
+const veiculo = {
+marca: 'Fiat',
+modelo: 'Uno',
+placa: 'ABC-1234',
+ano: '2010',
+cliente: 'Estevão Marques',
+mecanico: 'Guilherme Davi',
+status: 'Em andamento',
+};
+
+export { veiculo, userCliente, mecanicos };

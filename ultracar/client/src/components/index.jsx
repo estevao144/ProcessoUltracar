@@ -1,4 +1,5 @@
 import Navbar from './navbar';
 import Footer from './footer';
+import TableCar from './tableCar';
 
-export { Navbar, Footer };
+export { Navbar, Footer, TableCar };
