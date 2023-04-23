@@ -8,7 +8,6 @@ export default function Footer() {
     <div>
       <nav className="footer">
         <div className="footer__container">
-          <p className="footer__title"> Ultracar</p>
           <div className="footer__social">
             <p>Entre nas nossas redes:</p>
             <img src={facebook} alt="facebook" />

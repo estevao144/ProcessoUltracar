@@ -1,6 +1,7 @@
 import React from "react";
 import { logoTall } from "../../assets";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -37,7 +38,9 @@ export default function Home() {
           software de código aberto, com isso, você pode ter a certeza de que
           não há nenhuma espionagem ou invasão de privacidade.
         </p>
+        <Link to="https://ultracarweb.com/">
         <button> Venha conhecer </button>
+        </Link>
       </div>
     </div>
   );

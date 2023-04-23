@@ -2,16 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { setData } from "../../services/useLocalStorage";
-import { mecanicos } from "../../services/mock";
+
 
 import "./style.scss";
 
 export default function Registro() {
   const history = useNavigate();
-  // const [nome, setNome] = useState('');
-  // const [cpf, setCpf] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
   const [veiculo, setVeiculo] = useState({
     marca: '',
     modelo: '',
@@ -22,22 +18,6 @@ export default function Registro() {
     status: 'aberto',
   });
   const MIN_PASSWORD_LENGTH = 6;
-
-  // const handleNome = (e) => {
-  //   setNome(e.target.value);
-  // };
-
-  // const handleCpf = (e) => {
-  //   setCpf(e.target.value);
-  // };
-
-  // const handleEmail = (e) => {
-  //   setEmail(e.target.value);
-  // };
-
-  // const handlePassword = (e) => {
-  //   setPassword(e.target.value);
-  // };
 
   const handleCliente = (e) => {
     setVeiculo(prevState => ({
@@ -57,6 +37,30 @@ export default function Registro() {
     history("/");
   };
 
+  const validaAno = (ano) => {
+    const vAno = /^\d{4}$/g;
+    return vAno.test(ano);
+  };
+
+  const validaPlaca = (placa) => {
+    const vPlaca =/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/;
+    return vPlaca.test(placa);
+  };
+
+  const validaCPF = (cpf) => {
+    const vCPF = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/g;
+    return vCPF.test(cpf);
+  };
+
+  const validaVeiculo = () => {
+    if (
+      validaAno(veiculo.ano) && validaPlaca(veiculo.placa)
+    ) {
+      return true;
+    }
+    return false;
+  };
+
   const validaEmail = (email) => {
     const vEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     return vEmail.test(email);
@@ -72,12 +76,8 @@ export default function Registro() {
       validaEmail(email) &&
       validaPassword() &&
       nome &&
-      cpf &&
-      veiculo.marca &&
-      veiculo.modelo &&
-      veiculo.placa &&
-      veiculo.ano
-    ) {
+      validaCPF(cpf) &&
+      validaVeiculo()) {
       return true;
     }
     return false;
