@@ -68,7 +68,7 @@ export default function TableMecanico() {
         <div>
         <h1>Veiculos</h1>
         <div> Leitor de QRCODE </div>
-        {veiculos ===[] ? (
+        {!veiculos ? (
         <p>Sem carros cadastrados</p>
       ) : (
         <div className="table-car__header">

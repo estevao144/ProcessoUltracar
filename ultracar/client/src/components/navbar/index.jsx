@@ -40,7 +40,7 @@ export default function Navbar() {
       {!userCurrent.role ? (
       <div className="navbar__menu">
         <ul>
-        <button className="navbar__container__inicio" onClick={ handleBegin }>Inicio</button>
+        <button className="navbar__container__inicio" onClick={ handleBegin }>Início</button>
         <button className="navbar__container__perfil" onClick={ handleRegister }>Registro</button>
         <button className="navbar__container__logout" onClick={ handleLogin }>Login</button>
         </ul>
@@ -48,7 +48,7 @@ export default function Navbar() {
       ): userCurrent.role === 'cliente' ?(
         <div className="navbar__menu">
         <ul>
-        <button className="navbar__container__inicio" onClick={ handleBegin }>Inicio</button>
+        <button className="navbar__container__inicio" onClick={ handleBegin }>Início</button>
         <button className="navbar__container__perfil" onClick={ handleVeiculos }>Carros</button>
         <button className="navbar__container__logout"
         onClick={ () => handleExit()}
@@ -58,7 +58,7 @@ export default function Navbar() {
       ): (
         <div className="navbar__menu">
         <ul>
-        <button className="navbar__container__inicio" onClick={ handleBegin }>Inicio</button>
+        <button className="navbar__container__inicio" onClick={ handleBegin }>Início</button>
         <button className="navbar__container__perfil" onClick={ handleVeiculos }>Ordens de serviço</button>
         <button className="navbar__container__logout"
         onClick={ () => handleExit()}

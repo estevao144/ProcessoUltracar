@@ -3,47 +3,46 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { setData } from "../../services/useLocalStorage";
 
-
 import "./style.scss";
 
 export default function Registro() {
   const history = useNavigate();
   const [veiculo, setVeiculo] = useState({
-    marca: '',
-    modelo: '',
-    placa: '',
-    ano: '',
+    marca: "",
+    modelo: "",
+    placa: "",
+    ano: "",
     cliente: {},
-    mecanico: '',
-    status: 'aberto',
+    mecanico: "",
+    status: "aberto",
   });
   const MIN_PASSWORD_LENGTH = 6;
 
   const handleCliente = (e) => {
-    setVeiculo(prevState => ({
+    setVeiculo((prevState) => ({
       ...prevState,
-      cliente: { 
+      cliente: {
         ...prevState.cliente,
         [e.target.name]: e.target.value,
-      }
+      },
     }));
   };
 
   const { nome, cpf, email, password } = veiculo.cliente;
   const handleSubmit = (e) => {
     e.preventDefault();
-    setData('user', ({ nome, cpf, email, role:'cliente', password }));
-    setData('veiculos', [veiculo]);
+    setData("user", { nome, cpf, email, role: "cliente", password });
+    setData("veiculos", [veiculo]);
     history("/");
   };
 
   const validaAno = (ano) => {
-    const vAno = /^\d{4}$/g;
+    const vAno = /^\d{4}$/;
     return vAno.test(ano);
   };
 
   const validaPlaca = (placa) => {
-    const vPlaca =/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/;
+    const vPlaca = /[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/;
     return vPlaca.test(placa);
   };
 
@@ -53,9 +52,7 @@ export default function Registro() {
   };
 
   const validaVeiculo = () => {
-    if (
-      validaAno(veiculo.ano) && validaPlaca(veiculo.placa)
-    ) {
+    if (validaAno(veiculo.ano) && validaPlaca(veiculo.placa)) {
       return true;
     }
     return false;
@@ -77,7 +74,8 @@ export default function Registro() {
       validaPassword() &&
       nome &&
       validaCPF(cpf) &&
-      validaVeiculo()) {
+      validaVeiculo()
+    ) {
       return true;
     }
     return false;
@@ -180,6 +178,31 @@ export default function Registro() {
         >
           Registrar
         </button>{" "}
+        {!validaCPF(cpf) && (
+          <p className="registro__container__form__error">
+            Por favor, insira um CPF válido
+          </p>
+        )}
+        {!validaPlaca(veiculo.placa) && (
+          <p className="registro__container__form__error">
+            Por favor, insira uma placa válida no formato AAA0A00
+          </p>
+        )}
+        {!validaEmail(email) && (
+          <p className="registro__container__form__error">
+            Por favor, insira um email válido
+          </p>
+        )}
+        {password && password.length < MIN_PASSWORD_LENGTH && (
+          <p className="registro__container__form__error">
+            A senha deve ter pelo menos {MIN_PASSWORD_LENGTH} caracteres
+          </p>
+        )}
+        {!validaAno(veiculo.ano) && (
+          <p className="registro__container__form__error">
+            Por favor, insira um ano válido
+          </p>
+        )}
       </form>
     </div>
   );
