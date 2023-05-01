@@ -1,0 +1,42 @@
+.footer {
+  background-color: #fff;
+  padding: 40px 20px;
+
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 20px;
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    img:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__copy {
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
